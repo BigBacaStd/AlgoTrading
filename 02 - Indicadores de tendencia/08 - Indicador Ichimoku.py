@@ -116,3 +116,12 @@ plt.tight_layout()
 plt.show()
 
 
+#Recordatorio:
+#   -El Ichimoku Cloud es una herramienta completa para el analisis tecnico que proporciona informacion sobre niveles de soporte y resistencia,
+#   así como la direccion y momento de la tendencia. Utiliza varias lineas para trazar una "nube" que ayuda a prever posibles niveles futuros de
+#   soporte y resistencia.
+#   -La tendencia es considerada alcista cuando el precio esta por encima de la nube, bajista cuando esta por debajo, y neutras o en transicion
+#   cuando el precio esta dentro de la nube.
+#   -El area entre el Senkou Span A y el Senkou Span B se colorea para indicar las condiciones del mercado: verde claro para condiciones alcistas
+#   y rojo coral para condiciones bajistas. La combinacion de estas lineas y la nube ayuda a los traders a vizualizar la fuerza de la tendencia
+#   y a tomar decisiones informadas sobre sus operaciones.
