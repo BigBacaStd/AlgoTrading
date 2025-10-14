@@ -80,7 +80,7 @@ def Ichimoku_Cloud(df: pd.DataFrame, periodo_tenkan: int = 9, periodo_kijun: int
 
 # Descargar los datos historicos
 
-df = yf.download("BTC-USD", start="2022-01-01", end="2025-09-30", interval="1D", multi_level_index=False)
+df = yf.download("BTC-USD", start="2022-01-01", end="2025-10-12", interval="1D", multi_level_index=False)
 
 # Calcular Indicador
 

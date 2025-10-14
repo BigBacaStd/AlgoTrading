@@ -2,11 +2,8 @@
 import pandas as pd
 import numpy as np
 import yfinance
-import yfinance as yf
 import mplfinance as mpf
 import matplotlib.pyplot as plt
-from IPython.core.pylabtools import figsize
-from matplotlib.pyplot import title
 
 
 # Indicador: SAR Parabolico
@@ -74,8 +71,7 @@ def Parabolic_SAR(df: pd.DataFrame, incremento: float = 0.02, max_paso: float = 
                     acc_factor = min(acc_factor + incremento, max_paso)
                     low1 = Low[i - 1]
                     low2 = Low[i - 2]
-                    if low2 < Close[
-                        i]:  # Asegurarnos que el PSAR no está por encima de los precios más bajos recientes.
+                    if low2 < Close[i]:  # Asegurarnos que el PSAR no está por encima de los precios más bajos recientes.
                         Close[i] = low2
                     elif low1 < Close[i]:
                         Close[i] = low1
@@ -95,35 +91,34 @@ def Parabolic_SAR(df: pd.DataFrame, incremento: float = 0.02, max_paso: float = 
                     acc_factor = min(acc_factor + incremento, max_paso)
                     high1 = High[i - 1]
                     high2 = High[i - 2]
-                    if high2 > Close[
-                        i]:  # Asegurarnos que el PSAR no está por encima de los precios más altos recientes.
+                    if high2 > Close[i]:  # Asegurarnos que el PSAR no está por encima de los precios más altos recientes.
                         Close[i] = high2
                     elif high1 > Close[i]:
                         Close[i] = high1
 
-            # Determinar tendencia actual
+        # Determinar tendencia actual
 
-            up_trend = up_trend != reversal
+        up_trend = up_trend != reversal
 
-            # Asignar los valores de PSAR a las respectivas tendencias
+        # Asignar los valores de PSAR a las respectivas tendencias
 
-            if up_trend:
-                psar_up[i] = Close[i]
-            else:
-                psar_down[i] = Close[i]
+        if up_trend:
+            psar_up[i] = Close[i]
+        else:
+            psar_down[i] = Close[i]
 
-        # Crear las columnas en el DataFrame para almacenar los resultados
+    # Crear las columnas en el DataFrame para almacenar los resultados
 
-        data["PSAR"] = Close
-        data["UpTrend"] = psar_up
-        data["DownTrend"] = psar_down
+    data["PSAR"] = Close
+    data["UpTrend"] = psar_up
+    data["DownTrend"] = psar_down
 
-        return data[["PSAR", "UpTrend", "DownTrend"]]
+    return data[["PSAR", "UpTrend", "DownTrend"]]
 
 
 # Obtener Datos
 
-df = yfinance.download("NKLAQ", start="2024-01-01", end="2025-01-01", interval="1d", multi_level_index=False)
+df = yfinance.download("ETH-USD", start="2025-01-01", end="2025-10-13", interval="1d", multi_level_index=False)
 
 # Calcular Indicador
 
@@ -131,14 +126,20 @@ psar = Parabolic_SAR(df, incremento=0.02, max_paso=0.20)
 
 # Graficos adicionales
 
-apds =  [
+apds = [
     mpf.make_addplot(psar["UpTrend"], type="scatter", markersize=10, color="g", label="Tendencia Alcista"),
     mpf.make_addplot(psar["DownTrend"], type="scatter", markersize=10, color="r", label="Tendencia Bajista")
-        ]
+]
 
-fig, axes = mpf.plot(df, type="candle", style="yahoo", volume=True, addplot=apds, title="Grafico de Velas con Parabolic SAR",
-                     ylabel="Precio", ylabel_lower="volumen", figsize=(26,10), returnfig=True)
+fig, axes = mpf.plot(df, type="candle", style="yahoo", volume=True, addplot=apds,
+                     title="Grafico de Velas con Parabolic SAR",
+                     ylabel="Precio", ylabel_lower="volumen", figsize=(26, 10), returnfig=True)
 
-
-axes[0].legend(loc="upper Left", fontsize=8)
+axes[0].legend(loc="upper left", fontsize=8)
 plt.show()
+
+
+#Recordatorio
+#   - El Parabolic SAR es un indicador util para identificar reversiones de tendencia, pero debe combinarse con otros indicadores
+#   o análisis para confirmar las señales antes de tomar decisiones.
+#   - Ajustar los parámetros según las características del activo y la estrategia que estemos utilizando.
