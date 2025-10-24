@@ -35,7 +35,7 @@ def Indice_Acumulacion_Distribucion(df: pd.DataFrame) -> pd.Series:
     # Calcular
 
     High, Low, Close = df["High"], df["Low"], df["Close"]
-    MFM = ((Close - Low) - (High - Close) / (High - Low))
+    MFM = ((Close - Low) - (High - Close)) / (High - Low)
     # Flujo de Dinero de Volumen
     MFV = MFM * df["Volume"]
     MFV.name ="ADI"
