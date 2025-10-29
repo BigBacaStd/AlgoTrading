@@ -50,8 +50,8 @@ def Flujo_Dinero_Chaikin(df: pd.DataFrame, longitud: int = 20) -> pd.Series:
 
 
 # Obtener Datos
-ticker = "BTC-USD"
-df = yf.download(ticker, start="2024-01-01", end="2025-10-24", multi_level_index=False
+ticker = "ETH-USD"
+df = yf.download(ticker, start="2024-01-01", end="2025-10-25", multi_level_index=False)
 
 # Calcular Indicador
 cmf = Flujo_Dinero_Chaikin(df, longitud=20)
