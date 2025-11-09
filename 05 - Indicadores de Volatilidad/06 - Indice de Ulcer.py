@@ -50,7 +50,7 @@ def Ulcer_Index(df: pd.DataFrame, longitud: int = 14, columna: str = "Close") ->
 
 
 # Obtener Datos
-ticker = "BTC-USD"
+ticker = "FMTY14.MX"
 df = yf.download(ticker, start="2024-01-01", end="2025-10-31", multi_level_index=False)
 
 # Calcular Indicador

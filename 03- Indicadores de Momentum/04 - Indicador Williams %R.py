@@ -42,7 +42,7 @@ def Williams_PerR(df: pd.DataFrame, longitud: int = 14) -> pd.Series:
 
 # Obtener Datos
 
-ticker = "BTC-USD"
+ticker = "FMTY14.MX"
 df = yf.download(ticker, start="2023-01-01", end="2025-10-18", interval="1d", multi_level_index=False)
 
 # Calcular Indicador

@@ -118,7 +118,7 @@ def Parabolic_SAR(df: pd.DataFrame, incremento: float = 0.02, max_paso: float = 
 
 # Obtener Datos
 
-df = yfinance.download("ETH-USD", start="2025-01-01", end="2025-10-13", interval="1d", multi_level_index=False)
+df = yfinance.download("FMTY14.MX", start="2025-01-01", end="2025-10-13", interval="1d", multi_level_index=False)
 
 # Calcular Indicador
 

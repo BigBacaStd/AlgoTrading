@@ -74,7 +74,7 @@ def RSI_Estocastico(df: pd.DataFrame, longitud_rsi: int = 14, longitud_stoch: in
 
 # Obtener Datos Historicos
 
-ticker = "BTC-USD"
+ticker = "FMTY14.MX"
 
 df = yf.download(ticker, start="2023-01-01", end="2025-10-18", interval="1d", multi_level_index=False)
 
