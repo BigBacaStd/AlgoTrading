@@ -77,7 +77,7 @@ def Know_Sure_Thing(df: pd.DataFrame, roclen1: int = 10, roclen2: int = 15, rocl
 
 # Descargar datos
 
-ticker = "BTC-USD"
+ticker = "LTC-USD"
 df = yf.download(ticker, start="2024-01-01", end="2025-11-09", interval="1d", multi_level_index=False)
 
 # Calcular KST
