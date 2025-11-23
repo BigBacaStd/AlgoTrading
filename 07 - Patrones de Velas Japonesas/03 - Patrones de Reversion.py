@@ -7,9 +7,9 @@ import mplfinance as mpf
 from matplotlib.pyplot import ylabel
 
 # Obtener Datos Historicos
-ticker = "BTC-USD"
-fecha_inicio = "2010-01-01"
-fecha_final = "2024-01-01"
+ticker = "LTC-USD"
+fecha_inicio = "2024-01-01"
+fecha_final = "2025-11-01"
 df = yf.download(ticker, start=fecha_inicio, end=fecha_final, interval="1d", multi_level_index=False)
 
 # Patron Morning Star: El morning Star es un patrón alcista de tres velas que señala un cambio en la tendencia bajista a alcista.
